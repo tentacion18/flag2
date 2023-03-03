@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <div id="flag"></div>
+    
+
+</head>
+<body>
+    <script>
+    const flagContainer = document.getElementById("flag");
+
+const generateFlag = () => {
+  const flagColor1 = getRandomColor();
+  const flagColor2 = getRandomColor();
+  const flagColor3 = getRandomColor();
+
+  flagContainer.innerHTML = `
+    <div style="width: 100%; height: 33vh; background-color: ${flagColor1}; display: inline-block;"></div>
+    <div style="width: 100%; height: 33vh; background-color: ${flagColor2}; display: inline-block;"></div>
+    <div style="width: 100%; height: 33vh; background-color: ${flagColor3}; display: inline-block;"></div>
+  `;
+};
+
+const getRandomColor = () => {
+  const letters = "0123456789ABCDEF";
+  let color = "#";
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+};
+
+generateFlag();
+flagContainer.addEventListener("click", generateFlag);
+</script>
+</body>
+</html>
